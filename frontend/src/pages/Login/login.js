@@ -22,7 +22,7 @@ const Login = () => {
         setIsLoading(true);
         setError('');
         try {
-            const url = 'http://localhost:3001/login';
+            const url = 'https://medication-management-backend-1xy4.onrender.com/api/login';
             const options = {
                 method: 'POST',
                 headers: {
