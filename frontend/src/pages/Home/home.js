@@ -16,6 +16,11 @@ const Home = () => {
     const onChangeBoardingAction = () => {
         setBoardingAction(!boardingAction);
     }
+    const onLogoutHandled = () => {
+        Cookies.remove('jwtToken');
+        history.replace('/login');
+    }
+
     if (!jwtToken) {
         history.replace('/login');
     }
@@ -75,21 +80,24 @@ const Home = () => {
                                 </p>
                             </div>
                         </div>
-                        <div
-                            className="patient-care-taker-button"
-                            onClick={() => setShowOnboardingComponent(showOnboardingComponent === 'patient' ? 'caretaker' : 'patient')}
-                        >
-                            <div className="icon-cont text-sm">
-                                {showOnboardingComponent === 'patient' ? CareTakerIcon() : PatientIcon()}
+                        <div className='logout-button-container'>
+                            <button className="logout-button" onClick={onLogoutHandled}>Log Out</button>
+                            <div
+                                className="patient-care-taker-button"
+                                onClick={() => setShowOnboardingComponent(showOnboardingComponent === 'patient' ? 'caretaker' : 'patient')}
+                            >
+                                <div className="icon-cont text-sm">
+                                    {showOnboardingComponent === 'patient' ? CareTakerIcon() : PatientIcon()}
+                                </div>
+                                <h1 className="text-sm">
+                                    {showOnboardingComponent === 'patient' ? "Switch to Caretaker" : "Switch to Patient"}
+                                </h1>
                             </div>
-                            <h1 className="text-sm">
-                                {showOnboardingComponent === 'patient' ? "Switch to Caretaker" : "Switch to Patient"}
-                            </h1>
                         </div>
                     </div>
                 </div>
                 {(() => {
-                    switch(showOnboardingComponent) {
+                    switch (showOnboardingComponent) {
                         case 'patient':
                             return <PatientComp />;
                         case 'caretaker':
