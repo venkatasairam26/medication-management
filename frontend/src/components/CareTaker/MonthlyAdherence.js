@@ -1,20 +1,13 @@
 import React from 'react';
 import './styles.css';
-
 const MonthlyAdherence = () => {
-    // Data from the image
     const takenPercentage = 92;
     const missedDays = 4;
     const remainingDays = 3;
-    
-    // Calculate taken days based on percentage (assuming 30-day month for calculation)
-    const totalDays = 30; // Assuming a 30-day month
+    const totalDays = 30;
     const takenDays = Math.round((takenPercentage / 100) * totalDays);
-    
-    // Calculate percentages for the progress bar
     const missedPercentage = (missedDays / totalDays) * 100;
     const remainingPercentage = (remainingDays / totalDays) * 100;
-
     return (
         <div className="card monthly-adherence">
             <div className="card-header">
@@ -68,5 +61,4 @@ const MonthlyAdherence = () => {
         </div>
     );
 };
-
 export default MonthlyAdherence;

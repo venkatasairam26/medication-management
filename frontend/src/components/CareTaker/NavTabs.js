@@ -1,15 +1,11 @@
 import React from 'react';
 import './styles.css';
-
 const NavTabs = (props) => {
     const { activeTab, handleTabChange } = props;
     console.log(activeTab);
-    
-
     const handleTabClick = (tab) => {
         handleTabChange(tab);  
     };
-
     return (
         <nav className="dashboard-nav">
             <ul className="nav-tabs">
@@ -29,5 +25,4 @@ const NavTabs = (props) => {
         </nav>
     );
 };
-
 export default NavTabs;

@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./notification.css";
-
 const Notifications = () => {
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [missedAlerts, setMissedAlerts] = useState(true);
   const [alertDelay, setAlertDelay] = useState("2 hours");
   const [reminderTime, setReminderTime] = useState("20:00");
   console.log(alertDelay, reminderTime,"alertDelay")
-  
   const [status, setStatus] = useState("");
   const [alertMessage, setAlertMessage] = useState(false);
   const user_name = localStorage.getItem("user_name");
   const getEmail = localStorage.getItem("email");
   const [email, setEmail] = useState(getEmail);
   const [name, setName] = useState(user_name);
-  
   const [customMessage, setCustomMessage] = useState("");
   const [error, setError] = useState(false);
   console.log(reminderTime);
   console.log(alertDelay);
-
   useEffect(() => {
   if(name && email && customMessage){
     setError(false);
   }
 }, [name, email, customMessage]);  
-
   const ToggleSwitch = ({ checked, onChange, id }) => (
     <label htmlFor={id} className="switch">
       <input id={id} type="checkbox" checked={checked} onChange={onChange} />
       <span className="slider"></span>
     </label>
   );
-
   const handleSendAlert = async () => {
     if(name && email && customMessage && reminderTime && alertDelay){
       try {
@@ -43,11 +37,8 @@ const Notifications = () => {
              name,
             email,
             message: customMessage,
-            // alertDelay,
-            // reminderTime,
           }),
         });
-  
         const msg = await res.text();
         setStatus(msg);
         setAlertMessage(true);
@@ -59,9 +50,7 @@ const Notifications = () => {
     }else{
       setError(true);
     }
-   
   };
-
   useEffect(() => {
     if (alertMessage) {
       setTimeout(() => {
@@ -69,7 +58,6 @@ const Notifications = () => {
       }, 3000);
     }
   }, [alertMessage]);
-
   return (
     <div className="notifications-container">
       <div className="card">
@@ -93,7 +81,6 @@ const Notifications = () => {
             Notification Preferences
           </h3>
         </div>
-
         <div className="card-body">
           <div className="section">
             <div className="section-header">
@@ -130,9 +117,7 @@ const Notifications = () => {
               </div>
             </div>
           </div>
-
           <hr />
-
           <div className="section">
             <div className="section-header">
               <div style={{ display: "flex", flexDirection: "column" }}>
@@ -157,10 +142,8 @@ const Notifications = () => {
                   <option value="2">2 hours</option>
                   <option value="3">3 hours</option>
                   <option value="4">4 hours</option>
-                  
                 </select>
               </div>
-
               <div className="form-group">
                 <label className="label">Daily reminder time</label>
                 <input
@@ -175,7 +158,6 @@ const Notifications = () => {
           </div>
         </div>
       </div>
-
       <div className="email-preview-card">
         <div className="email-preview-header">
           <h3 className="email-preview-title">
@@ -214,7 +196,6 @@ const Notifications = () => {
           {error && <p className="error">Please fill all the fields</p>}
         </div>
       </div>
-
       <div className="button-container">
         <button 
           className={alertMessage ? "alert-message" : "notification-button"} 
@@ -226,5 +207,4 @@ const Notifications = () => {
     </div>
   );
 };
-
 export default Notifications;

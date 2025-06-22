@@ -6,15 +6,12 @@ import RecentActivity from './RecentActivity/RecentActivity';
 import CalendarView from './CalendarView';
 import Notifications from './notification/Notifications';
 import './styles.css';
-
 const CareTakerDashboard = () => {
     const [activeTab, setActiveTab] = useState('overview');
     const patientName = "Eleanor Thompson";
-    
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     };
-    
     const renderContentBasedOnTab = () => {
         switch (activeTab) {
             case 'overview':
@@ -29,7 +26,6 @@ const CareTakerDashboard = () => {
                 return <DashboardContent />;
         }
     };
-
     return (
         <div className="caretaker-dashboard">
             <Header patientName={patientName} />
@@ -40,5 +36,4 @@ const CareTakerDashboard = () => {
         </div>
     );
 };
-
 export default CareTakerDashboard;

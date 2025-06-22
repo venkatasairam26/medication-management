@@ -4,11 +4,9 @@
   border-radius: 10px;
   padding: 20px;
 }
-
 .calendar-legend {
   margin-top: 20px;
 }
-
 .legend-item {
   display: flex;
   align-items: center;
@@ -17,27 +15,21 @@
   color: #333;
   margin-bottom: 10px;
 }
-
 .legend-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   display: inline-block;
 }
-
 .legend-dot.taken {
-  background-color: #28a745; /* Green for taken */
+  background-color: #28a745; 
 }
-
 .legend-dot.missed {
-  background-color: #dc3545; /* Red for missed */
+  background-color: #dc3545; 
 }
-
 .legend-dot.today {
-  background-color: #007bff; /* Blue for today */
+  background-color: #007bff; 
 }
-
-/* Calendar dot indicators */
 .missed-dot {
   width: 8px;
   height: 8px;
@@ -47,7 +39,6 @@
   top: 4px;
   right: 4px;
 }
-
 .checked-dot {
   width: 8px;
   height: 8px;
@@ -57,48 +48,38 @@
   top: 4px;
   right: 4px;
 }
-
-/* Calendar styles */
 .react-calendar {
   width: 100%;
   border: none;
   font-family: inherit;
   line-height: 1.2;
 }
-
 .react-calendar__tile {
   position: relative;
   padding: 10px;
 }
-
 .react-calendar__tile--now {
   background-color: #006edc;
   color: white;
 }
-
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: #006edc;
   color: white;
 }
-
 .react-calendar__navigation__prev2-button,
 .react-calendar__navigation__next2-button {
   display: none;
 }
-
-/* Make the calendar more compact */
 .react-calendar__month-view__weekdays {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.8em;
 }
-
 .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;
 }
-
 .react-calendar__month-view__weekdays__weekday abbr {
   text-decoration: none;
 }

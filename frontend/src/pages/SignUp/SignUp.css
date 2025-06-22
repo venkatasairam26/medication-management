@@ -7,7 +7,6 @@
     width: 100%;
     background: linear-gradient(to right, #2ca5c2, #29b685);
 }
-
 .signup-form {
     background: #fff;
     padding: 40px 30px;
@@ -16,13 +15,11 @@
     width: 100%;
     max-width: 400px;
 }
-
 .signup-form h1 {
     text-align: center;
     color: #2ca5c2;
     margin: 0 0 20px;
 }
-
 .signup-form input,
 .signup-form select {
     width: 100%;
@@ -37,13 +34,11 @@
     -moz-appearance: none;
     appearance: none;
 }
-
 .signup-form input:focus,
 .signup-form select:focus {
     border-color: #2ca5c2;
     outline: none;
 }
-
 .signup-form button[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -56,23 +51,19 @@
     margin-top: 15px;
     transition: background-color 0.3s;
 }
-
 .signup-form button[type="submit"]:hover {
     background-color: #29b685;
 }
-
 .signup-form button[disabled] {
     background-color: #a3d9e4;
     cursor: not-allowed;
 }
-
 .error {
     color: #e74c3c;
     margin-top: 15px;
     text-align: center;
     font-size: 14px;
 }
-
 .login-link {
     text-align: center;
     margin-top: 15px;
@@ -81,25 +72,19 @@
     border: none;
     background: transparent;
 }
-
 button.login-link  {
     color: #2ca5c2;
     text-decoration: none;
     font-weight: 500;
 }
-
  button.login-link:hover {
     text-decoration: underline;
     color: #29b685;
 }
-
-
-/* Style the select dropdown arrow */
 .select-wrapper {
     position: relative;
     margin: 10px 0;
 }
-
 .select-wrapper::after {
     content: '▼';
     font-size: 12px;

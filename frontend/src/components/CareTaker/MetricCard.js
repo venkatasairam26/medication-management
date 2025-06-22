@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.css';
-
 const MetricCard = ({ value, label }) => {
     return (
         <div className="metric-card">
@@ -9,5 +8,4 @@ const MetricCard = ({ value, label }) => {
         </div>
     );
 };
-
 export default MetricCard;

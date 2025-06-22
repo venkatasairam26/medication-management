@@ -1,13 +1,10 @@
 import React from 'react';
 import { FaClock } from 'react-icons/fa';
 import './styles.css';
-
 const TodaysStatus = () => {
     const medications = [
         { id: 1, name: 'Daily Medication Set', time: '8:00 AM', status: 'pending' },
-        // Add more medication items as needed
     ];
-
     return (
         <div className="card todays-status">
             <h2 className="card-title">Today's Status</h2>
@@ -28,5 +25,4 @@ const TodaysStatus = () => {
         </div>
     );
 };
-
 export default TodaysStatus;

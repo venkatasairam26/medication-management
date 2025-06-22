@@ -1,7 +1,6 @@
 import React from 'react';
 import MetricCard from './MetricCard';
 import './styles.css';
-
 const Header = ({ patientName }) => {
     const metrics = [
         { value: '92%', label: 'Adherence Rate' },
@@ -9,13 +8,11 @@ const Header = ({ patientName }) => {
         { value: '4', label: 'Missed This Month' },
         { value: '3', label: 'Taken This Week' }
     ];
-
     return (
         <header className="dashboard-header">
             <div className="header-content">
                 <h1>Caretaker Dashboard</h1>
                 <p>Monitoring {patientName}'s medication adherence</p>
-                
                 <div className="metrics-container">
                     {metrics.map((metric, index) => (
                         <MetricCard 
@@ -29,5 +26,4 @@ const Header = ({ patientName }) => {
         </header>
     );
 };
-
 export default Header;

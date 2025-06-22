@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-
 const RecentActivity = () => {
   const [data, setData] = useState([]);
-  
-  // Sample data for demonstration
   const dummData = [
     {
       day: "Monday",
@@ -23,11 +20,7 @@ const RecentActivity = () => {
       status: "Missed"
     }
   ];
-
-  // Combine API data with dummy data
   const updatedData = [...data, ...dummData];
-
-  // Icons for the activity status
   const CompleteIcon = () => (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
@@ -44,7 +37,6 @@ const RecentActivity = () => {
       <polyline points="22 4 12 14.01 9 11.01"></polyline>
     </svg>
   );
-
   const PendingIcon = () => (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
@@ -62,8 +54,6 @@ const RecentActivity = () => {
       <line x1="12" y1="16" x2="12.01" y2="16"></line>
     </svg>
   );
-
-  // Fetch data from API
   useEffect(() => {
     const fetchCheckedDates = async () => {
       try {
@@ -74,10 +64,8 @@ const RecentActivity = () => {
         console.error("Error fetching checked dates:", error);
       }
     };
-
     fetchCheckedDates();
   }, []);
-
   return (
     <div className="recent-activity-container">
       <h1 className="recent-activity-title">Recent Medication Activity</h1>
@@ -126,5 +114,4 @@ const RecentActivity = () => {
     </div>
   );
 };
-
 export default RecentActivity;

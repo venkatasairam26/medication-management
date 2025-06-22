@@ -3,10 +3,7 @@ import './App.css';
 import Login from "./pages/Login/login";
 import SignUp from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/home";
-
 function App() {
-
-
   return (
     <div className="App">
       <Router>
@@ -19,5 +16,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

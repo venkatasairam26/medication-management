@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Cookies from 'js-cookie';
 import './login.css';
-
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,18 +12,15 @@ const Login = () => {
     if (jwtToken) {
         history.replace('/');
     }
-
     const onSuccess = (jwtToken) => {
         console.log(jwtToken);
         Cookies.set('jwtToken', jwtToken, { expires: 30 });
         history.replace('/');
     }
-
     const handleLogin = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         setError('');
-
         try {
             const url = 'http://localhost:3001/login';
             const options = {
@@ -34,10 +30,8 @@ const Login = () => {
                 },
                 body: JSON.stringify({ email, password })
             };
-
             const response = await fetch(url, options);
             const data = await response.json();
-
             if (response.ok) {
                 const jwtToken = data.jwtToken;
                 onSuccess(jwtToken);
@@ -51,15 +45,12 @@ const Login = () => {
         setIsLoading(false);
         setEmail('');
         setPassword('');
-
     }
-
     return (
         <div className="login-container">
             <div className="login">
                 <h1>Login</h1>
                 <form onSubmit={handleLogin}>
-
                     <input
                         type="email"
                         placeholder="Email"
@@ -67,7 +58,6 @@ const Login = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-
                     <input
                         type="password"
                         placeholder="Password"
@@ -75,7 +65,6 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-
                     <button type="submit" disabled={isLoading}>
                         {isLoading ? 'Logging in...' : 'Login'}
                     </button>

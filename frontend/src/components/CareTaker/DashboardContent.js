@@ -3,7 +3,6 @@ import TodaysStatus from './TodaysStatus';
 import QuickActions from './QuickActions';
 import MonthlyAdherence from './MonthlyAdherence';
 import './styles.css';
-
 const DashboardContent = () => {
     return (
         <div className="dashboard-content">
@@ -17,5 +16,4 @@ const DashboardContent = () => {
         </div>
     );
 };
-
 export default DashboardContent;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaEnvelope, FaBell, FaCalendarAlt } from 'react-icons/fa';
 import './styles.css';
-
 const QuickActions = () => {
     const actions = [
         { 
@@ -23,7 +22,6 @@ const QuickActions = () => {
             onClick: () => console.log('View full calendar')
         }
     ];
-
     return (
         <div className="card quick-actions">
             <h2 className="card-title">Quick Actions</h2>
@@ -38,5 +36,4 @@ const QuickActions = () => {
         </div>
     );
 };
-
 export default QuickActions;

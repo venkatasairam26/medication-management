@@ -1,6 +1,5 @@
 import './styles.css';
 import MedicationCalendar from '../Calender';
-
 const CalendarView = () => {
     return (
         <div className="calendar-view">
@@ -36,5 +35,4 @@ const CalendarView = () => {
         </div>
     );
 };
-
 export default CalendarView;
