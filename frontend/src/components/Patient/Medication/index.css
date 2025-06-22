@@ -1,0 +1,147 @@
+.today-medication-title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+.today-medication-title svg{
+    width: 20px;
+    height: 20px;
+    stroke: #2196F3;
+}
+.medication-set-num-name{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+.medication-set-container{
+    display: flex;
+    gap: 10px;
+}
+.medication-set{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #2196F3;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.medication-set:hover{
+    cursor: pointer;
+   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.medication-set-name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.medication-set-name h1{
+    font-size: 14px;
+}
+.medication-set-name p{
+    font-size: 12px;
+}
+.medication-number{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #2196F3;
+    color: white;
+    font-size: 1.5rem;
+}   
+.medication-number p{
+    font-size: 12px;
+}
+.medication-set-time{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 5px;
+}
+.medication-set-time h1{
+    font-size: 12px;
+    
+}
+.medication-set-time h1 .icon{
+    width: 15px;
+    height: 15px;
+    color: #2196F3;
+}
+.upload-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+    padding: 30px;
+    border-radius: 10px;
+}
+.upload-container h4{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+.upload-container p{
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 10px 0;
+}
+.upload-container input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.upload-container button{
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.upload-container button:hover{
+    background-color: #1976D2;
+}
+.upload-container button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.upload-container button:disabled:hover{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.upload-input{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 1;
+}
+.mark-button{
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 100%;
+}
+

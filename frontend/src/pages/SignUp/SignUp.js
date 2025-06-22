@@ -1,0 +1,114 @@
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import "./SignUp.css";
+import Cookies from 'js-cookie';
+
+const SignUp = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('');
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const history = useHistory();
+
+    // Redirect to home if already logged in
+    const jwtToken = Cookies.get('jwtToken');
+    if (jwtToken) {
+        history.replace('/');
+    }
+
+    const onSuccess = (data) => {
+        const message = data.message;
+        setError(message);
+        const jwtToken = data.jwtToken;
+        Cookies.set('jwtToken', jwtToken, { expires: 30 });
+        setTimeout(() => {
+            history.push('/');
+        }, 2000);
+    }
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setError('');
+
+        if (email === "" || password === "" || role === "") {
+            setError("Please fill in all fields");
+            setIsLoading(false);
+            return;
+        }
+
+
+        try {
+            const response = await fetch("http://localhost:3001/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password, role })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                onSuccess(data);
+            } else {
+                setError(data.error || 'Registration failed. Please try again.');
+            }
+        } catch (err) {
+            console.error('Signup error:', err);
+            setError('An error occurred. Please try again.');
+        }
+        
+        setIsLoading(false);
+    }
+
+    return (
+        <div className="signup-container">
+            <div className="signup-form">
+                <h1>Create Account</h1>
+                <form onSubmit={handleSignUp}>
+                    <input 
+                        type="email" 
+                        placeholder="Email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
+                        required 
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)}
+                        required 
+                        minLength="6"
+                    />
+                    <div className="select-wrapper">
+                        <select 
+                            value={role} 
+                            onChange={(e) => setRole(e.target.value)}
+                            required
+                        >
+                            <option value="">Select Role</option>
+                            <option value="patient">Patient</option>
+                            <option value="careTaker">Care Taker</option>
+                        </select>
+                    </div>
+                    <button 
+                        type="submit" 
+                        disabled={isLoading}
+                    >
+                        {isLoading ? 'Creating Account...' : 'Sign Up'}
+                    </button>
+                    {error && <div className="error">{error}</div>}
+                    <div className="login-link">
+                        Already have an account? <button className="login-link" onClick={() => history.replace('/login')}>Log in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default SignUp;
+ 
